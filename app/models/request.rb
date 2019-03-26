@@ -1,6 +1,5 @@
 class Request < ApplicationRecord
 
-    belongs_to :user
     has_many :comments, as: :commentable, dependent: :destroy
 
     validates :uuid, length: { in: 6..120 }

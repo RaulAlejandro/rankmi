@@ -1,0 +1,10 @@
+<%= form_for [comment.commentable, comment], remote: true, html: { class: :form } do |f| %>
+  <div>
+    <%= f.hidden_field :parent_id %>
+    <%= f.text_area :content, class:"trim form-control tama_13", placeholder: "Añade un comentario...", rows: 2, maxlength: 250, autocomplete: :off %>
+  </div>
+  <br>
+  <div align="right">
+    <%= f.submit "add comment", id:'add_comment', class:"btn btn-primary btn-xs"%>
+  </div>
+<% end %>

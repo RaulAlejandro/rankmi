@@ -1,5 +1,5 @@
-<div style="border: 1px #dedede solid; padding:3em; background-color:#fafafa">
-  <div class="form-group">
+<div class="row" style="border: 1px #dedede solid; padding:3em; background-color:#fafafa">
+  <div class="col-md-12">
     <div class="row">
       <div class="col-md-9">
         <h4><%= request.title %></h4>
@@ -9,7 +9,7 @@
       </div>
     </div>
   </div>
-  <div class="form-group">
+  <div class="col-md-12">
     <div class='request_content' style="background-color:#fff; padding:1em">
       <% if action_name == 'show' %>
         <%= simple_format request.description %>  
@@ -17,6 +17,14 @@
     </div>
   </div>
 </div >
-
-
-
+<br></br>
+<div class="row">
+  <div class="col-md-12" style="border: 1px #dedede solid; padding:2em; background-color:#fafafa">
+    <h4>Comentarios</h5>                     
+    <%= render "comments/form", comment: @request.comments.build %>  
+    <br>
+    <div id="comments" class="row">
+        <%= render partial: "comments/comment", collection: @request.comments.where(parent_id: nil).order('created_at DESC'), as: :comment %>
+    </div>
+  </div>
+</div>

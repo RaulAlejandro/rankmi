@@ -1,0 +1,17 @@
+<div id="comment_<%= comment.id %>" style="padding:2em">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-sm-12">
+          <span style="font-size:16px"><%= comment.content%></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12" style="color: #bbb; border-bottom: 1px dashed #ccc;">
+        <small>-
+          Sent by <%= comment.user.name %> &bull;
+          <%#= localize(comment.created_at, format: :long) %>
+        </small>
+      </div>      
+    </div>
+  </div>
+</div>

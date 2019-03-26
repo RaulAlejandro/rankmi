@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_26_144703) do
+ActiveRecord::Schema.define(version: 2019_03_26_191018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.string "commentable_type"
+    t.bigint "commentable_id"
+    t.bigint "user_id"
+    t.text "content", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "parent_id"
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
   create_table "requests", force: :cascade do |t|
     t.string "uuid", limit: 129, default: "", null: false
@@ -33,4 +45,5 @@ ActiveRecord::Schema.define(version: 2019_03_26_144703) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "comments", "users"
 end

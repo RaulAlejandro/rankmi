@@ -1,6 +1,6 @@
 class RequestsController < ApplicationController
 
-  before_action :set_request, except: [:index]
+  before_action :set_request, except: [:index, :create]
 
   def index
     @request  = Request.new
@@ -9,7 +9,6 @@ class RequestsController < ApplicationController
 
   def create
     @request = Request.new(request_params)
-    #@request.user_id = 1
     if @request.save
       redirect_to requests_url, notice: "Request was successfully created."
     else
