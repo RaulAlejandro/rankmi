@@ -1,0 +1,22 @@
+<div style="border: 1px #dedede solid; padding:3em; background-color:#fafafa">
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-9">
+        <h4><%= request.title %></h4>
+      </div>
+      <div class="col-md-3">
+        <%= localize request.created_at, format: :long %> &bull;
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class='request_content' style="background-color:#fff; padding:1em">
+      <% if action_name == 'show' %>
+        <%= simple_format request.description %>  
+      <% end %>
+    </div>
+  </div>
+</div >
+
+
+

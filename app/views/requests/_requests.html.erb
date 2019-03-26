@@ -1,20 +1,22 @@
 <div class="list-group">  
   <% @requests.each do |request| %>
-    <div class="row list-group-item" style="background:#fdfdfd">
-      <div class="col-md-1">
-           skjskjs
-      </div>
-      <div class="col-md-10">
-        <div class="row">
-          <h4><%= request.title %></h4>
+    <%= link_to request do %>
+      <div class="row list-group-item" style="background:#fafafa">
+        <div class="col-md-1">
+             skjskjs
         </div>
-        <div class="row">
-          <%= truncate request.description, length: 250 %>
+        <div class="col-md-10">
+          <div class="row">
+            <h4><%= request.title %></h4>
+          </div>
+          <div class="row">
+            <%= truncate request.description, length: 250 %>
+          </div>
+        </div>    
+        <div class="col-md-1">
+           ksjksjskjs
         </div>
-      </div>    
-      <div class="col-md-1">
-         ksjksjskjs
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>

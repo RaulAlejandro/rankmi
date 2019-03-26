@@ -6,7 +6,13 @@ Rails.application.routes.draw do
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
   resources :sessions, only: [:create, :destroy]
-  resource :requests
+  resources :requests do
+    resources :comments, except: [:index, :new, :show] do
+      member do
+        get :reply
+      end
+    end
+  end
 
   #root to: "home#show"
   root to: 'sessions#new'

@@ -1,6 +1,6 @@
 class RequestsController < ApplicationController
 
-  #before_action :set_request
+  before_action :set_request, except: [:index]
 
   def index
     @request  = Request.new
@@ -18,6 +18,9 @@ class RequestsController < ApplicationController
     end
   end
 
+  def show    
+  end
+  
   def add_comment
     @video_yt = Video.insert_comment(@video.uid, params[:comment])
     if @video_yt
