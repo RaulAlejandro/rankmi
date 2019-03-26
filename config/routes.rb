@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:create, :destroy]
   resources :requests do
+    get  'search',  on: :collection
     resources :comments, except: [:index, :new, :show] do
       member do
         get :reply

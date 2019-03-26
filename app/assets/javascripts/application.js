@@ -16,3 +16,18 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function () {
+  // Search form.
+  $('#requests_search input').keyup(function () {
+    $.get($('#requests_search').attr('action'), 
+      $('#requests_search').serialize(), null, 'script');
+    return false;
+  });
+
+   /* $('#requests_search input').keyup($.debounce( 250, function () {
+        $.get($('#requests_search').attr('action'), 
+          $('#requests_search').serialize(), null, 'script');
+        return false;
+    }));*/
+});

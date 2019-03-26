@@ -6,6 +6,14 @@ class Request < ApplicationRecord
     validates :title, :description, presence: true
     before_validation :load_uuid
 
+    def self.search(search)
+        if search
+          where('requests.title LIKE ?', "%#{search}%").order('id DESC')
+        else
+          Request.all
+        end
+    end
+
     private
     def  load_uuid
        self.uuid = SecureRandom.uuid

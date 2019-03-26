@@ -1,6 +1,6 @@
 class RequestsController < ApplicationController
 
-  before_action :set_request, except: [:index, :create]
+  before_action :set_request, except: [:index, :create, :search]
 
   def index
     @request  = Request.new
@@ -20,14 +20,14 @@ class RequestsController < ApplicationController
   def show    
   end
   
-  def add_comment
-    @video_yt = Video.insert_comment(@video.uid, params[:comment])
-    if @video_yt
-      respond_to do |format|
-        format.js { render :layout => false }
-      end
+  def search
+    @requests = Request.search(params[:search])    
+    respond_to do |format|
+      format.html
+      format.js { render :layout => false }
     end
   end
+
   def like
     @video.liked_by current_user
     respond_to do |format|

@@ -2,9 +2,6 @@ class CommentsController < ApplicationController
   before_action :set_commentable
   before_action :set_comment, only: [ :reply, :edit, :update, :destroy ]
  
-  def reply
-    @reply = @commentable.comments.build(parent: @comment)
-  end
  
   def create
     @comment = @commentable.comments.new(comment_params)
@@ -23,29 +20,6 @@ class CommentsController < ApplicationController
   end
  
   def edit
-  end
- 
-  def update
-    respond_to do |format|
-      if @comment.update(comment_params)
-        format.html { redirect_to @commentable, notice: "Comment was successfully updated."}
-        format.json { render json: @comment }
-        format.js
-      else
-        format.html { render :back, notice: "Comment was not updated." }
-        format.json { render json: @comment.errors }
-        format.js
-      end
-    end
-  end
- 
-  def destroy
-    @comment.destroy if @comment.errors.empty?
-    respond_to do |format|
-      format.html { redirect_to @commentable, notice: "Comments was successfully destroyed."}
-      format.json { head :no_content }
-      format.js
-    end
   end
  
   private
