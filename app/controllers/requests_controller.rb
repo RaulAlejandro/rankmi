@@ -29,14 +29,14 @@ class RequestsController < ApplicationController
   end
 
   def like
-    @video.liked_by current_user
+    @request.liked_by current_user
     respond_to do |format|
       format.js { render :vote,  locals: { vote: 'like' }, layout: false }
     end
   end
 
   def dislike
-    @video.downvote_from current_user
+    @request.downvote_from current_user
     respond_to do |format|
       format.js { render :vote,  locals: { vote: 'dislike' }, layout: false }
     end

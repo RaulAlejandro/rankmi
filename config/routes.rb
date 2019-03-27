@@ -9,9 +9,10 @@ Rails.application.routes.draw do
   resources :requests do
     get  'search',  on: :collection
     resources :comments, except: [:index, :new, :show] do
-      member do
-        get :reply
-      end
+    end
+    member do
+      put :like
+      put :dislike
     end
   end
 

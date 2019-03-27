@@ -1,0 +1,19 @@
+var vote = "<%= vote %>"
+if(vote == "like")
+{
+    $("#request_<%= @request.id %>").find(".down_vote").first()
+                                  .removeClass("txt-ocre txt-gris-medio")
+                                  .addClass( "txt-gris-medio" );
+    $("#request_<%= @request.id %>").find(".up_vote").first()
+                                  .removeClass("txt-gris-medio")
+                                  .addClass( "txt-ocre" );
+}
+else
+{
+    $("#request_<%= @request.id %>").find(".up_vote").first()
+                                  .removeClass("txt-ocre txt-gris-medio")
+                                  .addClass( "txt-gris-medio" );
+    $("#request_<%= @request.id %>").find(".down_vote").first()
+                                  .removeClass("txt-gris-medio")
+                                  .addClass( "txt-ocre" );
+}

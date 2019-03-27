@@ -1,11 +1,30 @@
-<div class="row" style="border: 1px #dedede solid; padding:3em; background-color:#fafafa">
+<div id="request_<%= request.id %>" class="row" style="border: 1px #dedede solid; padding:3em; background-color:#fafafa">
   <div class="col-md-12">
     <div class="row">
-      <div class="col-md-9">
+      <div class="col-md-8">
         <h4><%= request.title %></h4>
       </div>
-      <div class="col-md-3">
-        <%= localize request.created_at, format: :long %> &bull;
+      <div class="col-md-4">
+        <%#= localize request.created_at, format: :long %>
+          <div class="row">
+            <% get_vote  =  current_user.voted_as_when_voted_for request %>
+            <div class="col-sm-6">
+              <div align="right" class=""> 
+                <%= link_to like_request_path(request.id), remote: true, method: :put, class: get_vote ? "up_vote txt-ocre" : "up_vote txt-gris-medio", title:"Pulse para publicar ME GUSTA." do %>
+                    <i class="glyphicon glyphicon-thumbs-up"></i>
+                    <span>Me gusta</span>
+                <% end %>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div align="right" class=""> 
+                <%= link_to dislike_request_path(request.id), remote: true, method: :put, class: get_vote != false ? "down_vote txt-gris-medio" : "down_vote txt-ocre", title:"Pulse para publicar NO ME GUSTA." do %>
+                    <i class="glyphicon glyphicon-thumbs-down"></i>
+                    <span>No me gusta</span>
+                <% end %>                     
+              </div>
+            </div>
+          </div>
       </div>
     </div>
   </div>

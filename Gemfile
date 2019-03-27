@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 2.5'
 gem "omniauth-google-oauth2", "~> 0.2.1"
 gem 'bootstrap-sass'
 gem 'jquery-rails'
+gem 'acts_as_votable', '~> 0.12.0'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

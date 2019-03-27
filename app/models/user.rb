@@ -1,6 +1,7 @@
 class User < ApplicationRecord
+  acts_as_voter
 
-  has_many :videos, dependent: :destroy
+  has_many :requests, dependent: :destroy
   has_many :comments, dependent: :destroy
 
 
