@@ -13,7 +13,8 @@ class RequestsController < ApplicationController
       redirect_to requests_url, notice: "Solicitud creada satisfactoriamente."
     else
       flash[:error] = @request.errors.full_messages.join(", ")
-      render :index
+      redirect_to requests_url
+      #render :index
     end
   end
 

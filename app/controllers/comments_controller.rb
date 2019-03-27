@@ -8,11 +8,9 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @commentable, notice: "Comment was successfully created."}
         format.json { render json: @comment }
         format.js
       else
-        format.html { render :back, notice: "Comment was not created." }
         format.json { render json: @comment.errors }
         format.js
       end

@@ -1,11 +1,3 @@
-<% if @comment.parent %>
-$('#form_reply_comment_<%=@comment.parent_id%>').remove();
-$('#replies_comment_<%=@comment.parent_id %>').append('<%= j render partial: 'comments_children', locals:{ replies: @comment }  %>');
- 
-<% else %>
-
 $('#comments').prepend('<%= j render partial: 'comment', locals:{ comment: @comment }  %>');
 //$('#add_comment').css('display', 'none');
 $('#comment_content').val("");
-
-<% end %>

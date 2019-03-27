@@ -11,7 +11,7 @@
             <h4><%= request.title %></h4>
           </div>
           <div class="row">
-            <%= truncate request.description, length: 250 %>
+            <%= sanitize truncate request.description.html_safe, length: 250  %>
           </div>
         </div>    
         <div class="col-md-1">
