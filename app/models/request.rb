@@ -12,7 +12,11 @@ class Request < ApplicationRecord
            query = query.where('requests.title LIKE ?', "%#{search}%")
         end
         if order_by.present?
-           query = query.order('title ASC')
+            unless order_by == 0
+                query = query.order('title ASC')
+            else
+
+            end
         end
     end
 
