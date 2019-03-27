@@ -10,7 +10,7 @@ class RequestsController < ApplicationController
   def create
     @request = Request.new(request_params)
     if @request.save
-      redirect_to requests_url, notice: "Request was successfully created."
+      redirect_to requests_url, notice: "Solicitud creada satisfactoriamente."
     else
       flash[:error] = @request.errors.full_messages.join(", ")
       render :index
@@ -31,13 +31,15 @@ class RequestsController < ApplicationController
   def like
     @request.liked_by current_user
     respond_to do |format|
-      format.js { render :vote,  locals: { vote: 'like' }, layout: false }
+      flash[:notice] = "La solicitud ha recibido votación positiva"
+      format.js { render :vote,  locals: { vote: 'like' }, layout: false }      
     end
   end
 
   def dislike
     @request.downvote_from current_user
     respond_to do |format|
+      flash[:notice] = "La solicitud ha recibido votación negativa"
       format.js { render :vote,  locals: { vote: 'dislike' }, layout: false }
     end
   end

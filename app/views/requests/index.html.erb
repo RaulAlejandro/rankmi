@@ -4,9 +4,10 @@
     </div>
 </div>
 <br>
+<%= tinymce_assets %>
 <div class="row">
     <div class="col-md-12">
-        <h3 style="border-bottom: 1px solid #dedede;">Requerimets</h3>
+        <h3 style="border-bottom: 1px solid #dedede;">Requerimientos</h3>
         <%= form_for("", url: search_requests_path, method:'get', remote: true, html: { id: 'requests_search', role: 'form'} ) do |f| %> 
           <div class="row">
             <div class="col-md-4"></div>
@@ -17,7 +18,7 @@
             <div class="col-md-3">
               <div class="inner-addon left-addon">
                 <i class="glyphicon glyphicon-search"></i>
-                <%= text_field_tag :search, params[:search], class:"form-control", placeholder:"Search requests..."%>
+                <%= text_field_tag :search, params[:search], class:"form-control", placeholder:"Buscar solicitudes..."%>
               </div>              
             </div>
           </div>

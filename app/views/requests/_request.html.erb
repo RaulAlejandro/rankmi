@@ -10,7 +10,7 @@
             <% get_vote  =  current_user.voted_as_when_voted_for request %>
             <div class="col-sm-6">
               <div align="right" class=""> 
-                <%= link_to like_request_path(request.id), remote: true, method: :put, class: get_vote ? "up_vote txt-ocre" : "up_vote txt-gris-medio", title:"Pulse para publicar ME GUSTA." do %>
+                <%= link_to like_request_path(request.id), remote: true, method: :put, class: get_vote ? "up_vote txt-ocre" : "up_vote txt-gris-medio", title:"Pulse para publicar ME GUSTA.", style:"text-decoration:none" do %>
                     <i class="glyphicon glyphicon-thumbs-up"></i>
                     <span>Me gusta</span>
                 <% end %>
@@ -18,7 +18,7 @@
             </div>
             <div class="col-sm-6">
               <div align="right" class=""> 
-                <%= link_to dislike_request_path(request.id), remote: true, method: :put, class: get_vote != false ? "down_vote txt-gris-medio" : "down_vote txt-ocre", title:"Pulse para publicar NO ME GUSTA." do %>
+                <%= link_to dislike_request_path(request.id), remote: true, method: :put, class: get_vote != false ? "down_vote txt-gris-medio" : "down_vote txt-ocre", title:"Pulse para publicar NO ME GUSTA.", style:"text-decoration:none" do %>
                     <i class="glyphicon glyphicon-thumbs-down"></i>
                     <span>No me gusta</span>
                 <% end %>                     

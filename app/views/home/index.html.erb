@@ -1,0 +1,7 @@
+<% if current_user %>
+    <h3>Bienvenido, <%= current_user.name %></h3>
+    <p>RankmiTest es una herramienta donde podrás recoger el feedback y solicitudes de mejoras para el área de operaciones encargados de implementación..</p>
+<% else %>
+    <h3>Hola, Bienvenido a RankmiTest</h3>
+    <p> Se recomienda iniciar sesión para hacer uso de la herramienta </p>
+<% end %>

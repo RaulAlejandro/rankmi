@@ -15,4 +15,5 @@
 //= require activestorage
 //= require bootstrap
 //= require turbolinks
+//= require tinymce
 //= require_tree .

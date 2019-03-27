@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'requests/index'
-  get 'dashboard/index'
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
@@ -16,5 +14,6 @@ Rails.application.routes.draw do
     end
   end
 
-  root to: 'sessions#new'
+  root to: 'home#index'
+
 end
