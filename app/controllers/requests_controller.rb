@@ -21,7 +21,7 @@ class RequestsController < ApplicationController
   end
   
   def search
-    @requests = Request.search(params[:search])    
+    @requests = Request.search(params[:search], params[:order_by])    
     respond_to do |format|
       format.html
       format.js { render :layout => false }

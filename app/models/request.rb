@@ -6,11 +6,13 @@ class Request < ApplicationRecord
     validates :title, :description, presence: true
     before_validation :load_uuid
 
-    def self.search(search)
-        if search
-          where('requests.title LIKE ?', "%#{search}%").order('id DESC')
-        else
-          Request.all
+    def self.search(search, order_by)
+        query = Request.all
+        if search.present?
+           query = query.where('requests.title LIKE ?', "%#{search}%")
+        end
+        if order_by.present?
+           query = query.order('title ASC')
         end
     end
 

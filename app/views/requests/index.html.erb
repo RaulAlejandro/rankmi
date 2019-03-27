@@ -7,18 +7,21 @@
 <div class="row">
     <div class="col-md-12">
         <h3 style="border-bottom: 1px solid #dedede;">Requerimets</h3>
-        <div class="row">
-          <div class="col-md-6"></div>
-          <div class="col-md-3"></div>
-          <div class="col-md-3">
-            <%= form_for("", url: search_requests_path, method:'get', remote: true, html: { id: 'requests_search', role: 'form'} ) do |f| %> 
-                <div class="inner-addon left-addon">
-                    <i class="glyphicon glyphicon-search"></i>
-                    <%= text_field_tag :search, params[:search], class:"form-control", placeholder:"Search requests..."%>
-                </div>
-            <% end %>
+        <%= form_for("", url: search_requests_path, method:'get', remote: true, html: { id: 'requests_search', role: 'form'} ) do |f| %> 
+          <div class="row">
+            <div class="col-md-4"></div>
+            <div align="right" class="col-md-2">Ordenar Por:</div>
+            <div class="col-md-3">
+              <%= select_tag :order_by, options_for_select([['Votos', 0],['Alfabético',1]]), class:'form-control' %>
+            </div>
+            <div class="col-md-3">
+              <div class="inner-addon left-addon">
+                <i class="glyphicon glyphicon-search"></i>
+                <%= text_field_tag :search, params[:search], class:"form-control", placeholder:"Search requests..."%>
+              </div>              
+            </div>
           </div>
-        </div> 
+        <% end %> 
         <br>
         <div class="row">
             <div id="list-requests" class="col-md-12">            

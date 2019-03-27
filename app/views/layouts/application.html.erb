@@ -13,5 +13,6 @@
       <%= render "shared/flash_messages" %>
       <%= yield %>
     </div>
+    <%= javascript_include_tag params[:controller] %>
   </body>
 </html>
